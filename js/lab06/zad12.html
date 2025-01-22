@@ -1,0 +1,116 @@
+<!-- SKRYPT 12
+Wykorzystaj bibliotekę leaflet przygotuj pierwszą stronę z listą do wyboru 5 miejsc w Polsce. Po wyborze miejsca i przycisku pokaż, ma pojawić się strona z mapką na której będzie zaznaczone miejsce z markerem i komentarzami. Miejsca umieść w przygotowanych przez siebie obiektach na podstawi klasy zawierającej 3 pola: 
+constructor(name, latitude, longitude) {
+                    this.name = name;
+                    this.latitude = latitude;
+                    this.longitude = longitude;
+}
+Po wyborze obiektu z listy pobierasz parametry z obiektu i wrzucasz na mapkę. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skrypt 11 leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <style>
+    #map { 
+        height: 600px;
+        width: 600px;
+        display: none;
+     }
+     </style>
+    
+</head>
+<body>
+    <form id="form">
+        <label for="oln">olsztyn</label>
+        <input type="checkbox" id="oln" name="miasto" value="oln">
+        <div></div>
+        <label for="spt">sopot</label>
+        <input type="checkbox" id="spt" name="miasto" value="spt">
+        <div></div>
+        <label for="tor">toruń</label>
+        <input type="checkbox" id="tor" name="miasto" value="tor">
+        <div></div>
+        <label for="wwa">warszawa</label>
+        <input type="checkbox" id="wwa" name="miasto" value="wwa">
+        <div></div>
+        <label for="byd">bydgoszcz</label>
+        <input type="checkbox" id="byd" name="miasto" value="byd">
+        <div></div>
+        <input type="submit">
+        
+        
+    </form>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <script>
+        let mapa
+        document.getElementById('form').addEventListener('submit', (e)=>{
+
+            e.preventDefault()
+            document.getElementById('map').style.display = 'block'
+
+            //klasa
+            class Miasto{
+                    constructor(name, latitude, longitude) {
+                        this.name = name;
+                        this.latitude = latitude;
+                        this.longitude = longitude;
+                    }
+                }
+
+
+            const miasta ={
+                wwa: new Miasto('Warszawa',52.2297, 21.0122),
+                oln: new Miasto('Olsztyn',53.770226, 20.490189),
+                spt: new Miasto('Sopot',54.4416, 18.5601), //54.4416, 18.5601°
+                tor:new Miasto('Toruń',53.013790, 18.598444),
+                byd:new Miasto('Bydgoszcz',53.123482, 18.0084)}
+            
+
+            if (!mapa){
+                mapa = L.map('map').setView([53.247013, 19.924338], 7); 
+
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(mapa);
+            }
+            const wybraneMiasta = document.querySelectorAll('input[name="miasto"]:checked')
+
+            if (wybraneMiasta.length === 0) {
+                alert('nie wybrałeś miasyta');
+                return;
+            }
+            //markery
+            wybraneMiasta.forEach(checkbox => {
+                const miasto = miasta[checkbox.value];
+                if (miasto) {
+                    const marker = L.marker([miasto.latitude, miasto.longitude]).addTo(mapa);
+                    marker.bindPopup(`${miasto.name}`).openPopup();
+                }
+            });
+
+            
+            }
+            
+
+                
+                
+            
+
+        )
+        
+
+    </script>
+
+
+</body>
+</html>

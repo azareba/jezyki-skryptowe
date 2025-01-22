@@ -1,0 +1,12 @@
+SKRYPT 31
+1.	Przygotuj projekt zgodnie ze slajdami 7-18
+2.	Przygotuj projekt zgodnie ze slajdami 23-28
+3.	Przygotuj projekt (JavaScript+node+Babel). Odczytaj z pliku tekstowego 10 par: (miasto, ilość) km i umieść w tablicy par lub obiekcie:
+const distancesArray = [
+ ['Warszawa', 300], 
+['Kraków', 250],
+ ['Gdańsk', 400], 
+['Wrocław', 270], 
+['Łódź', 220] 
+];
+Następnie wypisz miasto przy którym jest najmniejsza liczba kilometrów..

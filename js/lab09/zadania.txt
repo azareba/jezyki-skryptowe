@@ -1,0 +1,111 @@
+SKRYPT 15. Przygotuj stronę jak na przykładzie poniżej (dwa pliki: HTML+style oraz javascript) 
+Dane pobierz z  https://jsonplaceholder.typicode.com/users,  korzystając z biblioteki JQuery i Ajax
+
+Przykład 1.
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<button class="test-ajax" type="button">Kliknij i zobacz w konsoli debugera</button>
+<ul class="user-list"></ul>
+<script type="text/javascript">
+const apiUrl = "https://jsonplaceholder.typicode.com";
+const $list = $('.user-list');
+
+$('.test-ajax').on('click', function() {
+    const $btn = $(this);
+    //wykonujemy połączenie
+    $.ajax({
+        url : apiUrl + '/users',
+        dataType : 'json'
+    })
+    .done((res) => {
+        //czyścimy listę przed dodaniem użytkowników
+        //inaczej ponowne kliknięcie duplikowało by użytkowników na liście
+        $list.empty();
+
+        //robimy pętlę po zwróconej tablicy
+        //dołączając do listy kolejne LI z imieniem i emailem użytkownika
+        res.forEach(el => {
+            $list.append(`<li>${el.address.geo.lat} : ${el.address.geo.lng}</li>`);
+        })
+    })
+    .always(() => {
+        //po zakończeniu wczytywania wyłączamy loading
+        //i włączamy przycisk
+        $btn.removeClass('loading');
+        $btn.prop('disabled', false);
+    });
+});
+</script>
+</body>
+</html>
+///////////////////////
+Przykład 2.
+
+….
+    <style>
+        /* Styl dla kart użytkowników */
+        .user-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .user-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .user-card:hover {
+            transform: scale(1.05);
+        }
+        .user-card h3 {
+            font-size: 1.2em;
+            margin: 8px 0;
+        }
+        .user-card p {
+            color: #555;
+        }
+        .user-card .email {
+            font-weight: bold;
+            color: #2c7;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Lista Użytkowników</h1>
+<div class="user-container" id="userContainer"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+….
+$(document).ready(function() {
+    // Pobieranie danych użytkowników z publicznego API
+    $.ajax({
+        url: 'https://jsonplaceholder.typicode.com/users',
+        method: 'GET',
+        success: function(users) {
+            const container = $('#userContainer');
+
+            // Przetwarzanie każdego użytkownika i dodawanie go do kontenera
+            users.forEach(function(user) {
+                const userCard = `
+…
+                    </div>
+                `;
+                container.append(userCard);
+            });
+        },
+        error: function() {
+            alert("Nie udało się załadować danych użytkowników.");
+        }
+    });
+});

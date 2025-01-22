@@ -1,0 +1,99 @@
+a Utworzenie nowego projektu React
+Utwórz nowy projekt React, używając narzędzia create-react-app, które automatycznie konfiguruje środowisko. Aby to zrobić, uruchom poniższą komendę w terminalu:
+npx create-react-app moj-projekt 
+cd moj-projekt
+gdyby nie działało to najpierw
+ npm init –y potem 
+npm install --legacy-peer-deps
+
+b Uruchom
+cd moj-projekt 
+npm start  //wystartuj serwer developerski
+
+w przypadku błędów przed uruchomieniem serwera:
+npm install @babel/plugin-proposal-private-property-in-object 
+npm install web-vitals
+
+
+---------------------------------------------------------
+Zadanie 2
+Przygotuj drugi projekt:
+
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [location, setLocation] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [people, setPeople] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Wysyłanie:', { location, startDate, endDate, people });
+    // Tutaj możesz dodać logikę wysyłania danych formularza
+  };
+
+  return (
+    <div className="App">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Miejscowość"
+          value={location}
+          onChange={e => setLocation(e.target.value)}
+        />
+        <input
+          type="date"
+          value={startDate}
+          onChange={e => setStartDate(e.target.value)}
+        />
+        <input
+          type="date"
+          value={endDate}
+          onChange={e => setEndDate(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Ilość osób"
+          value={people}
+          onChange={e => setPeople(e.target.value)}
+        />
+        <button type="submit">Szukaj</button>
+      </form>
+    </div>
+  );
+}
+
+export default App;
+
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+form {
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+input, button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+input[type="date"] {
+  cursor: pointer;
+}
+

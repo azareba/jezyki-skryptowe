@@ -1,0 +1,5 @@
+Warszawa, 300
+Kraków, 250
+Gdańsk, 400
+Wrocław, 270
+Łódź, 220

@@ -1,0 +1,71 @@
+<!-- Korzystając z poniższych przykładów, pobierz dane z API https://danepubliczne.imgw.pl/api/data/meteo/  i nanieść na mapkę  co najmniej 20 wybranych miejsc w Polsce (można wszystkie) z wybranymi pomiarami. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mapa z pukntami z API</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <style>
+        #map { 
+            height: 500px;
+            width: 70%;
+         }
+    </style>
+</head>
+<body>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <div id="map"></div>
+
+    <script>
+        //mapa
+        var map = L.map('map').setView([52.0694, 19.4802], 6);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        
+        // dane z api 
+        const xhr = new XMLHttpRequest();
+
+        xhr.addEventListener("load",  e => {
+            if (xhr.status === 200) {
+                const json = JSON.parse(xhr.response);
+                // console.log(json[0].nazwa_stacji);
+
+                json.forEach(stacja => {
+                    if (stacja.lat && stacja.lon && stacja.temperatura_gruntu != null && stacja.wiatr_srednia_predkosc != null){
+                        const lat = Number(stacja.lat)
+                        const lon = Number(stacja.lon)
+                        console.log(lat,lon);
+                        const info_stacji = `
+                                 Nazwa stacji: ${stacja.nazwa_stacji}, \n
+                                 Temperatura gruntu : ${stacja.temperatura_gruntu} °C,\n
+                                 Wiatr srednia predkosc : ${stacja.wiatr_srednia_predkosc} km/h
+                             `
+                        
+
+                        // markery sie pokazuja wszytskie // popup
+                        L.marker([lat, lon]).addTo(map)
+                            .bindPopup(info_stacji).openPopup();
+                    
+                    }
+                    
+                    
+                });
+
+            }
+        });
+
+        xhr.open("GET", "https://danepubliczne.imgw.pl/api/data/meteo", true);
+        xhr.send();
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,11 @@
+Skrypt 11
+Wykorzystaj bibliotekę leaflet nakieruj mapę startową na kampus UG wydział Zarządzania, Centrum dydaktyczne, Wydział Ekonomiczny. Opisz markerami  Wydział Zarządzania, Centrum dydaktyczne, Wydział Ekonomiczny. Wokół budynku Policji zastosuj circle  z odpowiednim promieniem i opisem. A parking przed budynkiem dydaktycznym podziel na 2 strefy: parking dla studentów, i parking dla pracowników – użyj poligon. (Przycisk na stronie->wyskakujące dodatkowe okno z mapą) https://leafletjs.com/examples/quick-start/
+
+SKRYPT 12
+Wykorzystaj bibliotekę leaflet przygotuj pierwszą stronę z listą do wyboru 5 miejsc w Polsce. Po wyborze miejsca i przycisku pokaż, ma pojawić się strona z mapką na której będzie zaznaczone miejsce z markerem i komentarzami. Miejsca umieść w przygotowanych przez siebie obiektach na podstawi klasy zawierającej 3 pola: 
+constructor(name, latitude, longitude) {
+                    this.name = name;
+                    this.latitude = latitude;
+                    this.longitude = longitude;
+}
+Po wyborze obiektu z listy pobierasz parametry z obiektu i wrzucasz na mapkę.

@@ -1,0 +1,9 @@
+Zadania
+Wykonaj następujące programy (skrypty) w języku JavaScript:
+. Zainstaluj Visual Studio Code oraz Node.js
+Skrypt 1. Utwórz formularz zawierający pola: imię nazwisko, email -  sprawdzający, czy imię i nazwisko zawiera dozwolone 
+polskie znaki, duże pierwsze litery, adres email jest odpowiednio sformatowany i w przypadku poprawnego wpisania wyświetla
+ poprawne dane na stronie np alert. (może reagować na wciśnięcie przycisku) 
+Skrypt  2. Pobierz 7 liczb jednocyfrowych z pola tekstowego, zapisz do tablicy 7-elementowej JavaScript, znajdź element 
+największy i wypisz  go na stronie HTML pod polem tekstowym. Użyj Funkcji.
+

@@ -1,0 +1,42 @@
+Zadanie 1.
+a Utworzenie nowego projektu React
+Utwórz nowy projekt React, używając narzędzia create-react-app, które automatycznie konfiguruje środowisko. Aby to zrobić, uruchom poniższą komendę w terminalu:
+npx create-react-app moj-projekt 
+cd moj-projekt
+gdyby nie działało to najpierw
+ npm init –y potem 
+npm install --legacy-peer-deps
+
+b Uruchom
+cd moj-projekt 
+npm start  //wystartuj serwer developerski
+
+w przypadku błędów przed uruchomieniem serwera:
+npm install @babel/plugin-proposal-private-property-in-object 
+npm install web-vitals
+
+c	Modyfikacja komponentu App
+Po utworzeniu projektu, otwórz plik src/App.js i zastąp jego zawartość poniższym kodem, aby stworzyć prosty licznik kliknięć:
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  // Utworzenie stanu dla przechowywania liczby kliknięć
+  const [count, setCount] = useState(0);
+
+  // Funkcja, która inkrementuje wartość licznika
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>Liczba kliknięć: {count}</p>
+        <button onClick={handleIncrement}>Kliknij mnie</button>
+      </header>
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Testowanie API</title>
+</head>
+<body>
+    <h2>Odpowiedź z API:</h2>
+    <pre id="response">ladowanie..</pre>
+
+    <script>
+       
+        const endpoint = 'http://localhost/scripts/lab14/api_zad21.php';
+
+        fetch(endpoint)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success"){
+                    const userData = data.data
+
+                    if (Array.isArray(userData)){
+                        // console.log(userData);
+                        // kilka roznych danych
+                        const wszyscy = userData.map(user => `Imię: ${user.imie}\nNazwisko: ${user.nazwisko}\nEmail: ${user.email}`).join(`\n\n`)
+                        
+                        document.getElementById("response").textContent=wszyscy
+                    
+                    }else{
+                        document.getElementById("response").textContent = `Imię: ${userData.imie}\nNazwisko: ${userData.nazwisko}\nEmail: ${userData.email}\n` 
+                    }
+                 
+                }else{
+                    document.getElementById("response").textContent = `blad api:${data.message}`
+                }
+            })
+            .catch(error => {
+                console.error('Błąd:', error);
+                document.getElementById("response").textContent= `error: ${error.message}`
+            });
+    </script>
+</body>
+</html>

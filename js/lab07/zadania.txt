@@ -1,0 +1,10 @@
+Przygotuj 2 strony dla menu kontekstoweg:
+1.	Pobierz z geolokalizacji współrzędne i wstaw na mapkę (ma się wyświetlać mapka z markerem (dane pobierane z geolokalizacji)).
+2.	Druga strona niech pobiera z formularza 10 liczb całkowitych i niech sortuje te liczby algorytmem couting sort (sortowanie przez zliczanie) i wyświetla posortowaną tablicę pod formularzem.
+Przykład
+Jeśli mamy tablicę: [4, 2, 2, 8, 3, 3, 1], to algorytm sortowania przez zliczanie działa w następujących krokach:
+1.	Tworzy tablicę count z wartościami początkowymi [0, 0, 0, 0, 0, 0, 0, 0, 0].
+2.	Po zliczeniu wystąpień: [0, 1, 2, 2, 1, 0, 0, 0, 1].
+3.	Po sumowaniu zliczeń: [0, 1, 3, 5, 6, 6, 6, 6, 7].
+4.	Na końcu tworzy posortowaną tablicę wyjściową: [1, 2, 2, 3, 3, 4, 8].
+Sortowanie przez zliczanie działa bardzo dobrze dla małych liczb całkowitych z ograniczonym zakresem, jednak ze względu na potrzebę tworzenia dużych tablic count, nie jest zalecany do sortowania liczb o dużym zakresie wartości lub liczb zmiennoprzecinkowych.

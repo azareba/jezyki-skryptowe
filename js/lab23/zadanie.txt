@@ -1,0 +1,12 @@
+SKRYPT 30
+1.	Przygotuj klasę generyczną class Sorter<T> w której zadeklaruj pole w postaci tablicy generycznej   private items: T[], która może przechowywać zmienne typu number i string.  Następnie przygotuj konstruktor tej klasy, który inicjuje wartości prywatnej tablicy generycznej.
+2.	Przygotuj metodę insertionSort () która sortuje tablicę items  z wykorzystaniem algorytmu sortowania przez wstawianie.
+3.	Poza klasą utwórz obiekty dla number i string i wywołaj metodę sortującą, Wypisz wyniki na konsolę.
+Przykład działania Insertion Sort
+Dla tablicy [5, 2, 9, 1]:
+1.	Krok 1:
+o	key = 2, porównujemy z 5. 5 przesuwamy w prawo, a 2 wstawiamy: [2, 5, 9, 1].
+2.	Krok 2:
+o	key = 9, nic nie przesuwamy (9 jest na swoim miejscu): [2, 5, 9, 1].
+3.	Krok 3:
+o	key = 1, porównujemy z 9, 5, 2. Wszystkie przesuwamy w prawo i wstawiamy 1: [1, 2, 5, 9].

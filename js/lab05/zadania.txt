@@ -1,0 +1,34 @@
+SKRYPT 9
+Stwórz klasę `Car`, która będzie reprezentować samochód z określonymi atrybutami i metodą wyświetlania informacji o pojeździe.
+Szczegóły zadania:
+1. Klasa `Car`:
+   - Powinna mieć trzy pola: `brand` (marka samochodu), `model` (model samochodu) oraz `year` (rok produkcji samochodu).
+   - Konstruktor klasy powinien przyjmować trzy argumenty i przypisywać je odpowiednio do pól `brand`, `model` i `year`.
+2. Metoda `displayInfo()`:
+   - Powinna wyświetlać w konsoli informacje o samochodzie w formacie: `"Car: {brand} {model}, Year: {year}"`.
+Scenariusz testowy:
+1. Utwórz obiekt klasy `Car`, reprezentujący samochód marki Toyota, model Corolla, z rokiem produkcji 2020.
+2. Wywołaj metodę `displayInfo()`, aby wyświetlić informacje o samochodzie w konsoli.
+Oczekiwany wynik:
+Program powinien wyświetlić w konsoli następujący tekst: Car: Toyota Corolla, Year: 2020
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+SKRYPT 10
+Stwórz dwie klasy: `Product` i `ShoppingCart`, które będą symulować koszyk zakupów w sklepie internetowym.
+Szczegóły zadania:
+1. Klasa `Product’:
+   - Powinna mieć dwa pola: `name` (nazwa produktu) oraz `price` (cena produktu).
+   - Konstruktor klasy powinien przyjmować dwa argumenty, które będą przypisywane odpowiednio do pól `name` i `price`.
+2. Klasa `ShoppingCart`:
+   - Powinna posiadać pole `items`, które będzie przechowywać listę produktów (obiektów klasy `Product`).
+   - Konstruktor klasy powinien inicjalizować pole `items` jako pustą tablicę.
+   - Metoda `addProduct(product)` powinna dodawać obiekt `Product` do tablicy `items`.
+   - Metoda `totalCost()` powinna obliczać i zwracać sumaryczną cenę wszystkich produktów znajdujących się w koszyku.
+
+Scenariusz testowy:
+1. Utwórz obiekt klasy `ShoppingCart`.
+2. Utwórz dwa produkty, np. laptop o cenie 1500 oraz myszkę o cenie 25.
+3. Dodaj oba produkty do koszyka.
+4. Wyświetl w konsoli łączną wartość produktów znajdujących się w koszyku, używając metody `totalCost()`.
+Oczekiwany wynik:
+Łączna cena powinna wynosić 1525 (1500 za laptopa + 25 za myszkę).
+

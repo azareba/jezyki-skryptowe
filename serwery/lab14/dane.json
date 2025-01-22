@@ -1,0 +1,20 @@
+[
+    {
+        "imie":"Imie1",
+        "nazwisko": "nazwisko1",
+        "email": "email1@e.m"
+
+    },
+    {
+        "imie":"Imie2",
+        "nazwisko": "nazwisko2",
+        "email": "email2@e.m"
+
+    },
+    {
+        "imie":"Imie3",
+        "nazwisko": "nazwisko3",
+        "email": "email3@e.m"
+
+    }
+]

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serwer Informacyjny</title>
+</head>
+<body>
+    <h1>Informacje o systemie</h1>
+    <button id="systemInfoBtn">Pokaż informacje o systemie</button>
+    <pre id="systemInfo"></pre>
+
+    <h1>Interfejsy sieciowe</h1>
+    <button id="networkStatsBtn">Pokaż interfejsy sieciowe</button>
+    <pre id="networkStats"></pre>
+
+    <h1>Pliki w katalogu</h1>
+    <button id="filesBtn">Pokaż pliki</button>
+    <pre id="files"></pre>
+
+    <h1>Bieżący katalog</h1>
+    <button id="currentDirectoryBtn">Pokaż bieżący katalog</button>
+    <pre id="currentDirectory"></pre>
+
+    <script>
+        const apiUrl = 'http://localhost:3000/api';
+
+        document.getElementById('systemInfoBtn').addEventListener('click', () => {
+            fetch(`${apiUrl}/system-info`)
+                .then(response => response.json())
+                .then(data => document.getElementById('systemInfo').textContent = JSON.stringify(data, null, 2));
+        });
+
+        document.getElementById('networkStatsBtn').addEventListener('click', () => {
+            fetch(`${apiUrl}/network-stats`)
+                .then(response => response.json())
+                .then(data => document.getElementById('networkStats').textContent = JSON.stringify(data, null, 2));
+        });
+
+        document.getElementById('filesBtn').addEventListener('click', () => {
+            fetch(`${apiUrl}/files`)
+                .then(response => response.json())
+                .then(data => document.getElementById('files').textContent = JSON.stringify(data, null, 2));
+        });
+
+        document.getElementById('currentDirectoryBtn').addEventListener('click', () => {
+            fetch(`${apiUrl}/current-directory`)
+                .then(response => response.json())
+                .then(data => document.getElementById('currentDirectory').textContent = JSON.stringify(data, null, 2));
+        });
+    </script>
+</body>
+</html>

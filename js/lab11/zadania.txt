@@ -1,0 +1,6 @@
+1.	Przygotuj widget – strona HTML z kilkoma przygotowanymi przez siebie stylami oraz tabelą umieszczoną w kontenerze w postaci div-a.
+ W tabeli umieść dane pobrane w postaci json  i technologii fetch() z API NBP:
+https://api.nbp.pl/api/cenyzlota/last/5/?format=json – ceny złota z 5 ostatnich dni
+https://api.nbp.pl/api/exchangerates/tables/A/?format=json – średnie kursy walut
+
+Dodaj logo NBP na dole i ikony flag krajów, gdzie obowiązują dane walut.

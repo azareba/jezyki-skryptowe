@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>test api</title>
+</head>
+<body>
+    <pre id="response">ladowanie..</pre>
+
+    <script>
+        const endpoint = 'http://localhost/scripts/lab13/api_zad20.php';
+
+        fetch(endpoint)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success"){
+                    const userData = data.data
+
+                    if (Array.isArray(userData)){
+                        // console.log(userData);
+                        // kilka roznych danych
+                        const wszyscy = userData.map(user => `Imie: ${userData.name}\nEmail: ${userData.email}\n`)
+                        
+                        document.getElementById("response").textContent=wszyscy
+                    
+                    }else{
+                        document.getElementById("response").textContent = `Imie: ${userData.name}\nEmail: ${userData.email}` 
+                    }
+                 
+                }else{
+                    document.getElementById("response").textContent = `blad api:${data.message}`
+                }
+            })
+            .catch(error => {
+                console.error('Błąd:', error);
+                document.getElementById("response").textContent= `error: ${error.message}`
+            });
+    </script>
+</body>
+</html>

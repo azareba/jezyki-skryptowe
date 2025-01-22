@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat WebSocket</title>
+    <style>
+        #chat {
+            border: 1px solid #ccc;
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        #messageInput {
+            width: calc(100% - 200px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Prosty czat</h1>
+    <div id="chat"></div>
+    <input type="text" id="messageInput" placeholder="Wpisz wiadomość...">
+    <button id="sendButton">Wyślij</button>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:3000');
+    
+        const chat = document.getElementById('chat');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+    
+        // Obsługa otwarcia połączenia
+        socket.onopen = () => {
+            console.log('Połączenie WebSocket otwarte');
+        };
+    
+        // Obsługa zamknięcia połączenia
+        socket.onclose = (event) => {
+            console.log('Połączenie WebSocket zamknięte:', event);
+        };
+    
+        // Obsługa błędów
+        socket.onerror = (error) => {
+            console.error('Błąd WebSocket:', error);
+        };
+    
+        // Obsługa odebranych wiadomości
+        socket.onmessage = (event) => {
+            const blob = event.data;
+    
+            const reader = new FileReader();
+            reader.onload = () => {
+                const message = document.createElement('p');
+                message.textContent = reader.result;
+                chat.appendChild(message);
+            };
+            reader.readAsText(blob);
+        };
+    
+        // Wysyłanie wiadomości po kliknięciu przycisku
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            if (message && socket.readyState === WebSocket.OPEN) {
+                socket.send(message);
+                messageInput.value = '';
+            } else if (socket.readyState !== WebSocket.OPEN) {
+                console.error('WebSocket nie jest połączony');
+            }
+        });
+    </script>
+    
+</body>
+</html>

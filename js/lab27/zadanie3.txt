@@ -1,0 +1,21 @@
+a Utworzenie nowego projektu React
+Utwórz nowy projekt React, używając narzędzia create-react-app, które automatycznie konfiguruje środowisko. Aby to zrobić, uruchom poniższą komendę w terminalu:
+npx create-react-app moj-projekt 
+cd moj-projekt
+
+gdyby nie działało to najpierw
+ npm init –y potem 
+npm install --legacy-peer-deps
+
+b Uruchom
+cd moj-projekt 
+npm start  //wystartuj serwer developerski
+
+w przypadku błędów przed uruchomieniem serwera:
+npm install @babel/plugin-proposal-private-property-in-object 
+npm install web-vitals
+
+
+------------------------------------------------------------
+Zadanie 3
+Przygotuj projekt (app.js, app.css) jeden formularz do wprowadzania liczby całkowitej, przycisk oblicz z podpiętym algorytmem Newtona-Raphsona obliczający pierwiastek kwadratowy z tej liczby. Wynik pod przyciskiem. 

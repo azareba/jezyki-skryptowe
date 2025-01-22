@@ -1,0 +1,15 @@
+skrypt 18
+w przegladadrce:
+http://127.0.0.1/scripts/lab12/zad18.php
+
+Napisz funkcję w języku PHP wykonującą cenzurowanie tekstu. Powinna ona przyjmować dwa argumenty, z których pierwszym byłby ciąg podlegający cenzurowaniu, a drugim — tablica zawierająca niepożądane zwroty. Każdy zwrot znajdujący się w tablicy powinien zostać zamieniony w tekście na ciąg [ocenzurowano]. Wykorzystaj funkcję  str_replace().  Wywołaj napisana przez siebie funkcję z przykładowymi danymi.
+
+
+
+skrypt 19
+http://127.0.0.1/scripts/lab12/zad19.php
+Utwórz katalog na lokalnym komputerze o nazwie KIE. Następnie w tym katalogu utwórz plik o nazwie student do którego wpisz dowolnej długości zdanie z polskimi znakami. Następnie napisz drugi  skrypt zamieniający polskie litery na ich łacińskie odpowiedniki w pliku tekstowym  student.
+
+
+skrypt 20
+http://127.0.0.1/scripts/api_zad20.php

@@ -1,0 +1,1 @@
+Korzystając ze skryptu 20, przygotuj aplikacje pobierającą co najmniej 3 rekordy (imię, nazwisko i adres) z bazy danym MySQL i zwracającą dane w postaci JSON-a do klienta.

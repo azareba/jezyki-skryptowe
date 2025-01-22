@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz</title>
+</head>
+<body>
+    <form id="dataForm">
+        <div>
+            <label for="imie">Imię: </label>
+            <input type="text" id="imie" name="imie">
+        </div>
+        <br>
+        <div>
+            <label for="nazwisko">Nazwisko: </label>
+            <input type="text" id="nazwisko" name="nazwisko">
+        </div>
+        <br>
+        <div>
+            <label for="adres_email">Email: </label>
+            <input type="text" id="email" name="email">
+        </div>
+        <br>
+        <div>
+            <label for="kierunek">Kierunek: </label>
+            <input type="text" id="kierunek" name="kierunek">
+        </div>
+        <br>
+        <div>
+            <label for="grupa">Grupa: </label>
+            <input type="text" id="grupa" name="grupa">
+        </div>
+        <br>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', async (event) => { 
+            event.preventDefault()
+            const formData = new FormData(event.target);
+            const data = { 
+                imie: formData.get('imie'),
+                nazwisko: formData.get('nazwisko'),
+                email: formData.get('email'),
+                kierunek: formData.get('kierunek'),
+                grupa: formData.get('grupa'),
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/submit', { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify(data),
+                }); 
+
+                const result = await response.text(); 
+                alert(result)
+            } catch (error) {
+                console.error('nie udalo sie preslac danych', error);
+            }
+        });
+
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:3000/data')
+                const data = await response.json()
+                console.log(data)
+            } catch (error) {
+                console.error('nie udalo sie preslac danych', error);
+            }
+        }
+
+        fetchData();
+
+
+    </script>
+</body>
+</html>

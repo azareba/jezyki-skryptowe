@@ -1,0 +1,27 @@
+.left-menu{
+  background-color: pink;
+  width: 150px;
+  /* padding-bottom: 10px; */
+ 
+  
+}
+.menu-header{
+  background-color: rgb(255, 147, 165);
+  text-align: center;
+  margin-bottom: 0%;
+}
+
+.items-name{
+  padding: 15px;
+  border: 1px solid rgb(232, 165, 186) ;
+  margin: 0%;
+}
+.items-name:hover{
+  background-color: rgb(238, 137, 153);
+}
+
+.items{
+  background-color: rgb(251, 209, 216);
+  padding: 15px;
+  margin: 0%;
+}

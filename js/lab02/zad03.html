@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonnaci zad03</title>
+    <script defer src="zad03.js" ></script>
+</head>
+<body>
+    <form id="form" method="dialog" >
+        <div>
+            <label for="fibNum">Podaj numer ciagu fibonacciego:</label>
+            <input type="number" id="fibNum" name="fibNum" min= 0 max = 50 value= 2 required>
+        </div>
+
+        <div id="wynikFib"></div>
+
+        <br>
+        <div>
+            <label for="nwd">Podaj dwie liczby oddzielone przecinkiem do obliczenia nwd:</label>
+            <input type="text" id="nwd" name="nwd" placeholder="4,6" value = '4,6' required>
+        </div>
+
+        <div id="wynikNwd"></div>
+
+        <input type="submit">
+        
+    </form>
+</body>
+</html>

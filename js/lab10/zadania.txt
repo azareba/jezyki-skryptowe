@@ -1,0 +1,2 @@
+SKRYPT 16.
+1.	Utwórz menu lewe zawierające 5 pozycji (div lub lista ul) które będa rozciągały się z wykorzystaniem metody animate lub slideToggle(). Przygotuj do zdania style CSS

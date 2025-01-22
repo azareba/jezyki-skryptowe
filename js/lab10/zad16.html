@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu do lewej</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <!-- zeby slideTOggle z biblioteki jQuery działało -->
+
+</head>
+<body>
+    <div class="left-menu">
+        <h2 class="menu-header">MENU</h2>
+        
+            <div class="menu-option">
+                <h3 class = "items-name">opcja 1</h3>
+                <ul class="items">
+                    <li>poz 1</li>
+                    <li>poz 2</li>
+                </ul>
+            </div>
+
+            <div class="menu-option">
+                <h3 class = "items-name">opcja 2</h3>
+                <ul class="items">
+                    <li>poz 1</li>
+                </ul>
+            </div>
+
+            <div class="menu-option">
+                <h3 class = "items-name">opcja 3</h3>
+                <ul class="items">
+                    <li>poz 1</li>
+                </ul>
+            </div>
+
+            <div class="menu-option">
+                <h3 class = "items-name">opcja 4</h3>
+                <ul class="items">
+                    <li>poz 1</li>
+                </ul>
+            </div>
+
+            <div class="menu-option">
+                <h3 class = "items-name">opcja 5</h3>
+                <ul class="items">
+                    <li>poz 1</li>
+
+                </ul>
+            </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.items-name').click(function () {
+                $(this).next('.items').slideToggle(400);
+            });
+        });
+
+    </script>
+</body>
+</html>

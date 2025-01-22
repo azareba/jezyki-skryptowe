@@ -1,0 +1,2 @@
+Skrypt 3.  Napisz funkcję pobierająca numer elementu ciągu Fibonacciego, obliczający ten element i wypisujący  w przeglądarce
+Skrypt 4. Pobierz 2 liczby całkowite w polach tekstowych formularza i obliczający NWD tych liczb.

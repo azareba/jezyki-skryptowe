@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skrypt 22</title>
+</head>
+<body>
+    <h2>Wprowadź dane</h2>
+    <form id="dataForm">
+        <div>
+            <label for="firstName">Imię: </label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <br>
+        <div>
+            <label for="lastName">Nazwisko: </label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <br>
+        <div>
+            <label for="address_email">Email: </label>
+            <input type="email" id="address_email" name="address_email" required>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Wyślij</button>
+        </div>
+    </form>
+
+    <p id="wynik"></p>
+
+    <script>
+        const endpoint = 'http://localhost/scripts/lab15/api_zad22.php';
+
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault()
+            const formData = new FormData(event.target)
+
+            fetch(endpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' 
+                }
+            })
+            .then(response => response.text()) 
+            .then(text => {
+                console.log('Pełna odpowiedz serwera:', text)
+                const data = JSON.parse(text)
+                document.getElementById('wynik').textContent = data.message
+            })
+            .catch(error => {
+                console.error('błąd:', error);
+                document.getElementById('wynik').textContent = 'erroz z przesyolaniem danych'
+            });
+        });
+    </script>
+</body>
+</html>

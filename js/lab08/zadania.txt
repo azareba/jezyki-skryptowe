@@ -1,0 +1,76 @@
+Skrypt 14
+Korzystając z poniższych przykładów, pobierz dane z API https://danepubliczne.imgw.pl/api/data/meteo/  i nanieść na mapkę  co najmniej 20 wybranych miejsc w Polsce (można wszystkie) z wybranymi pomiarami.
+
+
+
+Przykład 1.
+
+<html>
+<head>
+
+</head>
+<body>
+<button id="ala"> alala</button>
+<div id="sla">cos</div>
+<script>
+
+var a=document.querySelector('#sla');
+
+document.querySelector('#ala').addEventListener('click', function() {
+
+var r= new XMLHttpRequest();		//tworzymy nowy obiekt typu XMLHttpRequest,
+//r.open('GET','https://jsonplaceholder.typicode.com/users', true);
+r.open('GET','https://danepubliczne.imgw.pl/api/data/synop', true);
+r.onload=function(){
+
+var data=JSON.parse(r.responseText);
+//document.write(data[0].name);
+//document.write('ala');
+document.write(data[0].id_stacji);
+
+
+};
+
+r.send();
+
+
+});
+</script>
+</body>
+</html>
+////////////////////////////////////////////////////////////////////////////////
+Przykład 2.
+
+<html>
+<head>
+
+</head>
+<body>
+
+<script>
+
+const xhr = new XMLHttpRequest();
+
+xhr.addEventListener("load",  e => {
+    if (xhr.status === 200) {
+        const json = JSON.parse(xhr.response);
+        console.log(json[0].id_stacji);
+    }
+});
+
+xhr.open("GET", "https://danepubliczne.imgw.pl/api/data/synop", true);
+xhr.send();
+</script>
+</body>
+</html>
+
+
+// if (stacja.temperatura_gruntu != null && stacja.wiatr_srednia_predkosc != null){
+                        //     info_stacji = `
+                        //         Nazwa stacji: ${stacja.nazwa_stacji}, \n
+                        //         Temperatura gruntu : ${stacja.temperatura_gruntu} °C,\n
+                        //         Wiatr srednia predkosc : ${stacja.wiatr_srednia_predkosc} km/h
+                        //     `
+                        // }else{
+                        //     info_stacji = `Nazwa stacji: ${stacja.nazwa_stacji}`
+                        // } 
